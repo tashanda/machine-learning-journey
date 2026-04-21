@@ -1,0 +1,15 @@
+# LeetCode Day 1
+
+## Two Sum
+- use hash map
+- Complement approach
+
+## Contains Duplicate
+- Use set
+- Compare lenghts
+
+## Valid Anagram
+- Count letters using dictionary
+
+## Valid Palindrome
+- Two pointers (left/right)
