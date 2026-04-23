@@ -15,16 +15,6 @@ Y = np.array(grades)
 model = LinearRegression()
 model.fit(X, Y)
 ## model.fit(X, Y) learns the pattern between study hours and grades
-
-
-print("Predicted grade for 0 study hours: {:.2f}".format(model.predict([[0]])[0]))
-print("Predicted grade for 3 study hours: {:.2f}".format(model.predict([[3]])[0]))
-print("Predicted grade for 7 study hours: {:.2f}".format(model.predict([[7]])[0]))
-print("Predicted grade for 8 study hours: {:.2f}".format(model.predict([[8]])[0]))
-## Prints based on the pattern learned what grade is expected 
-## {: .2f} formats the output to 2 decimal places
-
-
 import matplotlib.pyplot as plt
 
 # scatter plot(actual data)
@@ -39,3 +29,17 @@ plt.title("Study Hours vs Grade Prediction")
 
 plt.legend()
 plt.show()
+
+# Input loop that predicts grade based on user input of hours studied
+while True:
+    user_hours = float(input("Input study hours (negative to exit):"))
+    if user_hours <= -1:
+        break
+
+
+    model_prediction = model.predict([[user_hours]])[0]
+    model_prediction = min(model_prediction, 100)  # Ensure the predicted grade does not exceed 100
+    print("Predicted grade for:{:.2f}".format(model_prediction))
+
+## Prints based on the pattern learned what grade is expected 
+## {: .2f} formats the output to 2 decimal places
